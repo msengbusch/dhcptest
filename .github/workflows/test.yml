@@ -7,7 +7,7 @@ jobs:
         os: [ windows-2019 ]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install D compiler
       uses: dlang-community/setup-dlang@1ccbc70a0eff7f264857b53c562aa45fd7f1e479
       with:
@@ -16,7 +16,7 @@ jobs:
       run: dmd dhcptest.d
     - name: Upload binary
       if: ${{ matrix.os == 'windows-2019' }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dhcptest-${{ matrix.os }}
         path: dhcptest.exe
